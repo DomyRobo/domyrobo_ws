@@ -1,6 +1,6 @@
-import serial
 from rclpy.node import Node
 from domyrobo_lib.msg import DiffDriveVelocity
+import serial
 
 
 
@@ -12,7 +12,7 @@ class DomyroboControllerNode(Node):
         super().__init__(name + '_controller_node')
 
         # Create ROS subscriber and timer instances
-        self.vel_pub = self.create_subscription(
+        self.vel_sub = self.create_subscription(
             DiffDriveVelocity,
             name + '/velocity',
             self.velocityCallback,

@@ -1,3 +1,5 @@
+import os
+from glob import glob
 from setuptools import setup
 
 package_name    = 'domyrobo_controller'
@@ -8,9 +10,9 @@ setup(
     version='0.0.0',
     packages=[package_name, submodule],
     data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
+        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name), glob('launch/*_launch.py'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -21,7 +23,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'domyrobo_controller_launch = domyrobo_controller.domyrobo_controller_launch:main',
+            'domyrobo_controller_main = domyrobo_controller.domyrobo_controller_main:main',
+            'domyrobo_teleop_main = domyrobo_controller.domyrobo_teleop_main:main',
         ],
     },
 )

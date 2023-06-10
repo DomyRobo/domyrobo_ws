@@ -1,0 +1,15 @@
+move_forward:
+  linear_vel  : 0.3
+  angular_vel : 0.0
+
+move_backward:
+  linear_vel  : -0.3
+  angular_vel : 0.0
+
+turn_right:
+  linear_vel  : 0.0
+  angular_vel : -2.5
+
+turn_left:
+  linear_vel  : 0.0
+  angular_vel : 2.5
